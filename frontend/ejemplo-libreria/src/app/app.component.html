@@ -1,0 +1,174 @@
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>{{title}}</span>
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="cuerpo">
+
+  <div class="titulo-libros">Lista de libros</div>
+
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="listarLibros()"
+    [disabled]="loading">
+    <mat-icon>search</mat-icon>
+    Cargar libros
+  </button>
+
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="actualizarLibro()"
+    [disabled]="loading">
+    <mat-icon>search</mat-icon>
+    Actualizar
+  </button>
+  id:
+  <input
+    placeholder="id"
+    type="text"
+    [(ngModel)]="id">
+  precio:
+  <input
+    placeholder="precio"
+    type="text"
+    [(ngModel)]="precio">
+  <br>
+  <br>
+
+  <mat-progress-bar
+    *ngIf="loading"
+    mode="indeterminate"></mat-progress-bar>
+  <table
+    mat-table
+    [dataSource]="libros"
+    class="mat-elevation-z8 tabla-libros">
+
+    <!-- - Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="idLibro">
+      <th
+        mat-header-cell
+        *matHeaderCellDef>
+        No.
+      </th>
+      <td
+        mat-cell
+        *matCellDef="let element">
+        {{element.idLibro}}
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="titulo">
+      <th
+        mat-header-cell
+        *matHeaderCellDef>
+        Titulo
+      </th>
+      <td
+        mat-cell
+        *matCellDef="let element">
+        {{element.titulo}}
+      </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="autor">
+      <th
+        mat-header-cell
+        *matHeaderCellDef>
+        Autor
+      </th>
+      <td
+        mat-cell
+        *matCellDef="let element">
+        {{element.autor}}
+      </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="genero">
+      <th
+        mat-header-cell
+        *matHeaderCellDef>
+        Género
+      </th>
+      <td
+        mat-cell
+        *matCellDef="let element">
+        {{element.genero}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fechaPublicacion">
+      <th
+        mat-header-cell
+        *matHeaderCellDef>
+        Fecha de Publicación
+      </th>
+      <td
+        mat-cell
+        *matCellDef="let element">
+        {{element.fechaPublicacion | date: 'dd/MM/yyyy'}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dimension">
+      <th
+        mat-header-cell
+        *matHeaderCellDef>
+        Dimensión
+      </th>
+      <td
+        mat-cell
+        *matCellDef="let element">
+        {{element.dimension}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="precio">
+      <th
+        mat-header-cell
+        *matHeaderCellDef>
+        Precio
+      </th>
+      <td
+        mat-cell
+        *matCellDef="let element">
+        S/ {{element.precio}}
+      </td>
+    </ng-container>
+
+    <tbody>
+      <tr
+        mat-header-row
+        *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns;"></tr>
+    </tbody>
+  </table>
+
+</div>
