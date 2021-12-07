@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormLibroComponent } from './form-libro/form-libro.component';
 import { LibroService } from './libro.service';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +23,7 @@ export class AppComponent implements OnInit {
 
   precio: number = 0;
 
-  constructor(private libroService: LibroService) {
+  constructor(private libroService: LibroService, public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -47,7 +49,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-
-
-
+  Crear(){
+    const dialogRef = this.dialog.open(FormLibroComponent);
+  }
 }

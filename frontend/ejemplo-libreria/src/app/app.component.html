@@ -34,14 +34,7 @@
     Cargar libros
   </button>
 
-  <button
-    mat-flat-button
-    color="primary"
-    (click)="actualizarLibro()"
-    [disabled]="loading">
-    <mat-icon>search</mat-icon>
-    Actualizar
-  </button>
+  
   id:
   <input
     placeholder="id"
@@ -52,6 +45,15 @@
     placeholder="precio"
     type="text"
     [(ngModel)]="precio">
+
+    <button
+    mat-flat-button
+    color="primary"
+    (click)="Crear()"
+    [disabled]="loading">
+    <mat-icon>search</mat-icon>
+    Crear Nuevo Libro
+  </button>
   <br>
   <br>
 

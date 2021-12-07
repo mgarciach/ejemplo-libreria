@@ -18,4 +18,8 @@ export class LibroService {
     return this.http.post<any>('https://localhost:44337/Api/libro/actualizar-precio', null, { params: { id: id, precio: precio } }).pipe(delay(500));
   }
 
+  public guardarLibro(libro: any) {
+    return this.http.post<any>('https://localhost:44337/Api/libro/guardar-libro', libro);
+  }
+
 }

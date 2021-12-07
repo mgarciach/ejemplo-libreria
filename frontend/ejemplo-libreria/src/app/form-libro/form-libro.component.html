@@ -1,0 +1,32 @@
+<p>form-libro works!</p>
+<div>Titulo<input type="text" [(ngModel)]="titulo"></div>
+<div>Autor<input type="text" [(ngModel)]="autor"></div>
+<div>Género<input type="text" [(ngModel)]="genero"> </div>
+<div>Fecha de Publicación<input type="text" [(ngModel)]="fechaPublicacion"> </div>
+<div>Dimensión<input type="text" [(ngModel)]="dimension"> </div>
+<div>Precio<input type="text" [(ngModel)]="precio"> </div>
+
+<br>
+<br>
+
+<button
+    mat-flat-button
+    color="primary"
+    (click)="Cancelar()"
+    [disabled]="loading">
+    <mat-icon>search</mat-icon>
+    Cancelar
+  </button>
+
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="Guardar()" 
+    [disabled]="loading">
+    <mat-icon>search</mat-icon>
+    Guardar
+</button>
+
+
+
+

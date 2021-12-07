@@ -12,16 +12,6 @@ namespace EjemploLibreria.Models
         public DateTime FechaPublicacion { get; set; }
         public string Dimension { get; set; }
         public string Autor { get; set; }
-        public float Precio { get; set; }
-
-        public Libro(string titulo, string genero, DateTime fechaPublicacion, string dimension, string autor, float precio)
-        {
-            Titulo = titulo;
-            Genero = genero;
-            FechaPublicacion = fechaPublicacion;
-            Dimension = dimension;
-            Autor = autor;
-            Precio = precio;
-        }
+        public decimal Precio { get; set; }
     }
 }

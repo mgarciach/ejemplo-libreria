@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EjemploLibreria.Data;
+using EjemploLibreria.Entities;
 using EjemploLibreria.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -67,6 +68,21 @@ namespace EjemploLibreria.Controllers
 
             return Ok(new { message = "Se actualizo correctamente" });
         }
+
+
+
+        [HttpPost]
+        [Route("guardar-libro")]
+        public IActionResult guardarLibro([FromBody] Libro libro)
+        {                               
+           
+            _context.Libros.Add(new ELibro(libro.Titulo, libro.Genero, libro.FechaPublicacion, libro.Dimension, libro.Autor, libro.Precio));
+
+            _context.SaveChanges();
+
+            return Ok(new { message = "Se actualizó correctamente" });
+        }
+
 
 
     }

@@ -40,7 +40,8 @@ namespace EjemploLibreria
                 options.AddPolicy(name: "cors",
                                   builder =>
                                   {
-                                      builder.WithOrigins("http://localhost:4200");
+                                      builder.WithOrigins("http://localhost:4200").AllowAnyMethod()
+               .AllowAnyHeader();
                                   });
             });
 
